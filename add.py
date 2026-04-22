@@ -13,5 +13,9 @@ def main():
     result = add(num1, num2)
     print(f"The sum of {num1} and {num2} is {result}")
 
+# create a simple test file with name aaa.txt only for testing purposes and store it in the repository once GitHub actiion run completed
+with open("aaa.txt", "w") as f:
+    f.write("This is a test file for GitHub Actions.")
+
 if __name__ == "__main__":
     main()           

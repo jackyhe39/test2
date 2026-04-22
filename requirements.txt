@@ -1,0 +1,26 @@
+# Core data analysis
+numpy
+pandas
+scipy
+scikit-learn
+statsmodels
+openpyxl
+xlrd
+pyarrow
+
+# Visualization and plotting
+matplotlib
+seaborn
+plotly
+bokeh
+altair
+
+# Notebook / interactive analysis
+jupyter
+jupyterlab
+ipykernel
+
+# Helpful utilities for data workflows
+requests
+python-dateutil
+pytz

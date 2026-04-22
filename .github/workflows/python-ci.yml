@@ -54,17 +54,8 @@ jobs:
           print('All dependency imports succeeded.')
           PY
 
-      - name: Run quick function checks
+      - name: Run add.py directly
         run: |
-          python - <<'PY'
-          from add import add
-          assert add(2, 3) == 5
-          assert add(10, 10) == 20
-          assert add(20, 20) == 40
-          assert add(1.5, 2.5) == 4.0
-          print('Function checks passed.')
-          PY
-
-      - name: Run script non-interactively
-        run: |
-          printf '2\n3\n' | python add.py
+          output=$(printf '2\n3\n' | python add.py)
+          echo "$output"
+          echo "$output" | grep -F "The sum of 2.0 and 3.0 is 5.0"

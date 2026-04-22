@@ -12,13 +12,10 @@ def main():
     num2 = float(input("Enter the second number: "))
     result = add(num1, num2)
     print(f"The sum of {num1} and {num2} is {result}")
+    with open("aaa.txt", "w", encoding="utf-8") as f:
+        f.write(f"The sum of {num1} and {num2} is {result}\n")
+    print("Saved aaa.txt")
 
-# create a simple test file with name aaa.txt only for testing purposes and store it in the repository once GitHub actiion run completed
-with open("aaa.txt", "w") as f:
-    f.write("This is a test file for GitHub Actions.")
-# store the file in current repository
-import shutil
-shutil.move("aaa.txt", "./aaa.txt")
 # run the main function
 if __name__ == "__main__":
     main()           

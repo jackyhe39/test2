@@ -1,5 +1,8 @@
 name: Python CI
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -59,3 +62,16 @@ jobs:
           output=$(printf '2\n3\n' | python add.py)
           echo "$output"
           echo "$output" | grep -F "The sum of 2.0 and 3.0 is 5.0"
+
+      - name: Commit and push aaa.txt
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add aaa.txt
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update aaa.txt from GitHub Actions"
+            git push
+          fi
